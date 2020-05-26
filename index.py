@@ -39,7 +39,8 @@ class HandlerClass(SimpleHTTPRequestHandler):
             del request[addr_pair]
             request[addr_pair]=[num,ts]
         file=open("index.html", "w")
-        file.write("<!DOCTYPE html> <html> <body><center><h1><font color=\"blue\" face=\"Georgia, Arial\" size=8><em>Real</em></font> Visit Results</h1></center>");
+        file.write("<!DOCTYPE html> <html> <body><center><h1><font color=\"blue\" face=\"Georgia, Arial\" size=8><em>Real</em></font> Visit Results</h1> <em> request.headers[X-Remote-User] </em> </center>");
+        
         for pair in request:
             if pair[0] == host:
                 guest = "LOCAL: "+pair[0]
